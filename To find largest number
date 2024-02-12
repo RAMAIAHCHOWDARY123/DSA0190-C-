@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+#include <limits> // for numeric_limits
+
+int main() {
+    std::vector<int> numbers;
+    int num;
+    char choice;
+
+    do {
+        std::cout << "Enter a number: ";
+        std::cin >> num;
+
+        numbers.push_back(num);
+
+        std::cout << "Do you want to enter another number? (y/n): ";
+        std::cin >> choice;
+    } while (choice == 'y' || choice == 'Y');
+
+    // Finding the largest number
+    int largest = std::numeric_limits<int>::min(); // Initializing largest with minimum possible value for an integer
+
+    for (int number : numbers) {
+        if (number > largest) {
+            largest = number;
+        }
+    }
+
+    std::cout << "The largest number is: " << largest << std::endl;
+
+    return 0;
+}
