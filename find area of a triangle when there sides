@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cmath>
+
+double calculateArea(double a, double b, double c) {
+    double s = (a + b + c) / 2;
+    double area = sqrt(s * (s - a) * (s - b) * (s - c));
+    return area;
+}
+
+int main() {
+    double side1, side2, side3;
+    
+    std::cout << "Enter the lengths of the three sides of the triangle: ";
+    std::cin >> side1 >> side2 >> side3;
+
+    if (side1 <= 0 || side2 <= 0 || side3 <= 0 || (side1 + side2 <= side3) || (side1 + side3 <= side2) || (side2 + side3 <= side1)) {
+        std::cout << "Invalid triangle. Please enter valid side lengths." << std::endl;
+        return 1;
+    }
+
+    double area = calculateArea(side1, side2, side3);
+
+    std::cout << "Area of the triangle is: " << area << std::endl;
+
+    return 0;
+}
