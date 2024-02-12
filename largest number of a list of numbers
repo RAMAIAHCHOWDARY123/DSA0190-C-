@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    std::vector<int> numbers;
+    int num;
+    char choice;
+
+    do {
+        std::cout << "Enter a number: ";
+        std::cin >> num;
+
+        numbers.push_back(num);
+
+        std::cout << "Do you want to enter another number? (y/n): ";
+        std::cin >> choice;
+    } while (choice == 'y' || choice == 'Y');
+
+    if (numbers.empty()) {
+        std::cout << "No numbers entered." << std::endl;
+        return 1;
+    }
+
+    int largest = numbers[0]; 
+
+    for (size_t i = 1; i < numbers.size(); ++i) {
+        if (numbers[i] > largest) {
+            largest = numbers[i];
+        }
+    }
+
+    std::cout << "The largest number is: " << largest << std::endl;
+
+    return 0;
+}
